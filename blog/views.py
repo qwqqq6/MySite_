@@ -56,7 +56,7 @@ def blog_detail(request, blog_pk):
         if ReadNum.objects.filter(blog=blog).count():
             readnum = ReadNum.objects.get(blog=blog)
         else:
-            readnum = ReadNum()
+            readnum = ReadNum(blog=blog)
         readnum.read_num += 1
         readnum.save()
     content['blog'] = blog
