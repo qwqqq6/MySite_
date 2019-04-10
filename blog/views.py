@@ -80,3 +80,4 @@ def blogs_with_date(request, year, month):
     content = get_blog_list_common_data(request, blogs_all_list)
     content['blogs_with_date'] = '%s年%s月' % (year, month)
     return render_to_response('blog/blog_with_date.html', content)
+
