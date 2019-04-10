@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models.fields import exceptions
 from django.contrib.auth.models import User
 from ckeditor_uploader.fields import RichTextUploadingField
 
@@ -19,8 +20,11 @@ class Blog(models.Model):
     created_time = models.DateTimeField(auto_now_add=True)
     last_updated_time = models.DateTimeField(auto_now=True)
 
-    def read_num(self):
-        return self.readnum.read_num
+    def get_read_num(self):
+        try:
+            return self.readnum.read_num
+        except exceptions.ObjectDoesNotExist:
+            return 0
 
     def __str__(self):
         return self.title

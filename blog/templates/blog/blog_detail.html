@@ -24,7 +24,7 @@
                         </a>
                     </li>
                     <li>发表时间：{{ blog.created_time }}</li>
-                    <li>浏览次数：{{ blog.read_num }}</li>
+                    <li>浏览次数：{{ blog.get_read_num }}</li>
                 </ul>
                 <div class="blog-content">{{ blog.content|safe }}</div>
                 <div class="blog-more">
